@@ -1,0 +1,241 @@
+/* style.css - for Club World Cup 2025 site */
+
+/* General reset for consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --- MAIN CONTAINER --- */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background: #f8f8fa;
+    border: 1px solid #d0d0d0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- HEADER --- */
+header {
+    background: #00529f;
+    color: white;
+    padding: 1.2em 0;
+    text-align: center;
+}
+
+/* --- NAVBAR FLEX LAYOUT WITH TITLE AND DROPDOWN --- */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #eaf2fb; /* Same color as the menu and dropdown */
+    padding: 0.7em 2em 0.7em 2em;
+    min-height: 2.2em;
+    position: relative;
+}
+
+/* Menu aligned left */
+.nav-left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+/* Page title aligned right in navbar */
+.nav-title {
+    flex: 1;
+    text-align: center;
+    color: #00529f;
+    font-size: 1.2em;
+    font-weight: bold;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    /* Optional: add margin-right if you want more space to the border */
+    margin-right: 0.3em;
+}
+
+.nav-right {
+    flex: 1;
+}   
+
+/* --- DROPDOWN MENU --- */
+.menu {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    background: transparent; /* Inherit background from navbar */
+    padding: 0;
+    margin: 0;
+}
+
+/* Main menu item */
+.menu > li {
+    position: relative;
+}
+
+/* Main menu link */
+.menu > li > a {
+    color: #00529f;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.4em 1em;
+    border-radius: 4px;
+    transition: background 0.2s;
+    cursor: pointer;
+    background: transparent;
+}
+
+/* Hover/focus effect on main menu */
+.menu > li > a:focus,
+.menu > li > a:hover {
+    background: #b4daf9;
+    color: #1a1a1a;
+}
+
+/* --- SUBMENU HIDDEN BY DEFAULT --- */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: #eaf2fb;
+    min-width: 170px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    border-radius: 6px;
+    padding: 0.5em 0;
+}
+
+/* Submenu item style */
+.dropdown-content li {
+    display: block;
+    text-align: left;
+}
+
+/* Submenu links style */
+.dropdown-content a {
+    display: block;
+    color: #00529f;
+    text-decoration: none;
+    padding: 0.6em 1em;
+    border-radius: 0;
+    font-weight: normal;
+    background: none;
+    transition: background 0.15s;
+}
+
+/* Hover/focus effect on submenu items */
+.dropdown-content a:hover,
+.dropdown-content a:focus {
+    background: #c8e3fb;
+    color: #262626;
+}
+
+/* SHOW SUBMENU ON HOVER OR FOCUS-WITHIN */
+.menu > .dropdown:hover > .dropdown-content,
+.menu > .dropdown:focus-within > .dropdown-content {
+    display: block;
+}
+
+/* --- MAIN FLEX LAYOUT --- */
+main {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    padding: 2em 1em;
+    flex: 1;
+}
+
+/* Left side (main text) */
+.left {
+    flex: 3;
+}
+
+/* Right side (images) */
+.right {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 1.3em;
+}
+
+.right img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid #dde6ef;
+}
+
+/* Multimedia section (video/audio) */
+video, audio {
+    margin-top: 1.1em;
+    margin-bottom: 1.1em;
+    width: 100%;
+    max-width: 360px;
+    outline: none;
+}
+
+/* --- EXTERNAL LINKS --- */
+main ul {
+    margin-top: 0.7em;
+    padding-left: 1.3em;
+}
+
+main ul li {
+    margin-bottom: 0.7em;
+}
+
+main a[target="_blank"] {
+    text-decoration: underline dotted;
+}
+
+/* --- FOOTER --- */
+footer {
+    background: #00529f;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    margin-top: auto;
+}
+
+/* --- ACCESSIBILITY: FOCUS VISIBLE --- */
+a:focus {
+    outline: 2px dashed #00529f;
+    background: #fff8e1;
+}
+
+/* --- RESPONSIVE DESIGN (small screens) --- */
+@media (max-width: 700px) {
+    main {
+        flex-direction: column;
+        gap: 1.5em;
+        padding: 1em 0.5em;
+    }
+    .left, .right {
+        width: 100%;
+    }
+    /* Navbar vertical for mobile */
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.7em 1em;
+    }
+    .nav-title {
+        margin-top: 0.8em;
+        margin-bottom: 0.4em;
+        margin-right: 0;
+    }
+    .menu {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 0.5em;
+    }
+    .dropdown-content {
+        position: static;
+        min-width: unset;
+        box-shadow: none;
+    }
+}
